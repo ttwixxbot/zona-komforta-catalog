@@ -316,6 +316,7 @@ button {
   z-index: 3;
   width: min(62rem, 70%);
   padding: 144px 0 0 64px;
+  will-change: opacity, transform, filter;
 }
 
 .hero-copy h1 {
@@ -353,6 +354,7 @@ button {
   line-height: 1.28;
   letter-spacing: 0;
   text-shadow: 0 12px 36px rgba(33, 14, 8, 0.36);
+  will-change: opacity, transform, filter;
 }
 
 .hero-cta {
@@ -360,6 +362,13 @@ button {
   z-index: 8;
   right: 8.5%;
   bottom: 288px;
+  will-change: opacity, transform, filter;
+}
+
+.hero-scene:not(.hero-scene--content-visible) .hero-copy,
+.hero-scene:not(.hero-scene--content-visible) .hero-description,
+.hero-scene:not(.hero-scene--content-visible) .hero-cta {
+  pointer-events: none;
 }
 
 .luxury-button {
