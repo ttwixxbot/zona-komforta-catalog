@@ -5,6 +5,7 @@ import { Catalog } from "./pages/Catalog";
 import { CategoryPage } from "./pages/CategoryPage";
 import { Contacts } from "./pages/Contacts";
 import { Home } from "./pages/Home";
+import { Privacy } from "./pages/Privacy";
 import { ProductPage } from "./pages/ProductPage";
 
 export function App() {
@@ -22,6 +23,7 @@ export function App() {
         <Route path="/catalog/:category" element={<CategoryPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
     </AnimatePresence>
   );

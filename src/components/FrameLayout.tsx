@@ -31,6 +31,7 @@ function Footer() {
         <Link to="/catalog/sofas">Диваны</Link>
         <Link to="/catalog/office-chairs">Офисные кресла</Link>
         <Link to="/contacts">Контакты</Link>
+        <Link to="/privacy">Политика конфиденциальности</Link>
       </div>
       <div className="footer-contact">
         <a href="tel:+79990000000">+7 999 000-00-00</a>

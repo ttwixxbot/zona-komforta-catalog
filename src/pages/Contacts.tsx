@@ -7,6 +7,10 @@ import { PageTransition } from "../components/PageTransition";
 import { Seo } from "../components/Seo";
 import { getProductById } from "../data/products";
 
+const mapQuery = encodeURIComponent("Донецк Донецк-Сити");
+const yandexMapWidgetUrl = `https://yandex.ru/map-widget/v1/?text=${mapQuery}&z=16`;
+const yandexMapLink = `https://yandex.ru/maps/?text=${mapQuery}`;
+
 export function Contacts() {
   const [searchParams] = useSearchParams();
   const selectedProduct = useMemo(() => getProductById(searchParams.get("product") ?? ""), [searchParams]);
@@ -26,7 +30,7 @@ export function Contacts() {
     <PageTransition>
       <Seo
         title="Контакты — Зона Комфорта"
-        description="Свяжитесь с Зоной Комфорта: телефон, мессенджеры, адрес и форма заявки."
+        description="Свяжитесь с Зоной Комфорта: телефон, мессенджеры, адрес, карта и форма заявки."
       />
       <FrameLayout>
         <Header variant="solid" />
@@ -43,7 +47,7 @@ export function Contacts() {
                 <a href="tel:+79990000000">+7 999 000-00-00</a>
                 <a href="https://wa.me/79990000000">WhatsApp</a>
                 <a href="https://t.me/zonakomforta">Telegram</a>
-                <span>Москва, мебельный шоурум, ул. Тёплая, 12</span>
+                <span>Донецк, Донецк-Сити</span>
                 <span>Ежедневно 10:00–21:00</span>
               </div>
             </div>
@@ -51,7 +55,12 @@ export function Contacts() {
             <form className="contact-form" onSubmit={handleSubmit}>
               <label>
                 <span>Имя</span>
-                <input value={name} onChange={(event) => setName(event.target.value)} required placeholder="Как к вам обращаться" />
+                <input
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  required
+                  placeholder="Как к вам обращаться"
+                />
               </label>
               <label>
                 <span>Телефон</span>
@@ -76,6 +85,30 @@ export function Contacts() {
                 </div>
               ) : null}
             </form>
+          </section>
+
+          <section className="map-section" aria-labelledby="map-title">
+            <div className="map-section__copy">
+              <span>Адрес на карте</span>
+              <h2 id="map-title">Донецк-Сити</h2>
+              <p>Точка привязана через Яндекс.Карты по запросу «Донецк, Донецк-Сити».</p>
+              <a href={yandexMapLink} target="_blank" rel="noreferrer">
+                Открыть в Яндекс.Картах
+              </a>
+            </div>
+            <div className="map-card">
+              <div className="map-card__pin" aria-hidden="true">
+                <span />
+                Донецк-Сити
+              </div>
+              <iframe
+                title="Зона Комфорта на Яндекс.Картах"
+                src={yandexMapWidgetUrl}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </section>
         </main>
       </FrameLayout>

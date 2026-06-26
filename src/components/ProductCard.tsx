@@ -16,6 +16,8 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="product-card"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8, scale: 1.012 }}
+      whileTap={{ scale: 0.986 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: Math.min(index, 8) * 0.035, ease: [0.22, 1, 0.36, 1] }}
     >

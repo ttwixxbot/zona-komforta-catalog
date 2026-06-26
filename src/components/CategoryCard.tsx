@@ -15,6 +15,8 @@ export function CategoryCard({ category, index = 0, variant = "home" }: Category
       className={`category-card category-card--${variant}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8, scale: 1.012 }}
+      whileTap={{ scale: 0.986 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
     >
