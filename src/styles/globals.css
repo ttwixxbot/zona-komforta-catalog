@@ -274,7 +274,7 @@ button {
   position: relative;
   min-height: 720px;
   overflow: hidden;
-  border-radius: 46px;
+  border-radius: 34px;
   color: var(--photo-text);
   background:
     radial-gradient(circle at 55% 16%, #ffb351 0 28px, rgba(255, 179, 81, 0.25) 31px, transparent 48px),
@@ -357,7 +357,7 @@ button {
 .hero-description {
   position: absolute;
   z-index: 4;
-  top: 258px;
+  top: 188px;
   right: 5%;
   max-width: 280px;
   margin: 0;
@@ -382,8 +382,8 @@ button {
 .hero-cta {
   position: absolute;
   z-index: 8;
-  right: 9.5%;
-  bottom: 260px;
+  right: 8.5%;
+  bottom: 288px;
 }
 
 .luxury-button {
@@ -458,9 +458,12 @@ button {
 .icon-arrow {
   width: 52px;
   height: 52px;
-  border: 1px solid rgba(255, 246, 232, 0.78);
+  border: 1px solid rgba(255, 246, 232, 0.74);
   color: var(--photo-text);
-  background: rgba(61, 30, 18, 0.24);
+  background: linear-gradient(135deg, var(--terracotta-bright), var(--terracotta-deep));
+  box-shadow:
+    0 14px 28px rgba(80, 37, 17, 0.22),
+    inset 0 0 0 1px rgba(255, 246, 232, 0.18);
 }
 
 .home-showcase {
