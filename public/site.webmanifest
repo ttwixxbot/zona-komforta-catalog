@@ -1,0 +1,15 @@
+{
+  "name": "Зона Комфорта",
+  "short_name": "ЗК",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff7e8",
+  "theme_color": "#c96535",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
