@@ -1,13 +1,27 @@
 import { motion } from "framer-motion";
-import heroSofa from "../assets/hero/hero-sofa.jpg";
 import { Header } from "./Header";
 import { LuxuryButton } from "./Button";
+
+const publicAssetBase = import.meta.env.BASE_URL;
+const heroVideoSrc = `${publicAssetBase}video/hero-video.mp4`;
+const heroPosterSrc = `${publicAssetBase}images/hero-poster.webp`;
 
 export function Hero() {
   return (
     <section className="hero-scene" aria-labelledby="hero-title">
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={heroPosterSrc}
+        aria-hidden="true"
+      >
+        <source src={heroVideoSrc} type="video/mp4" />
+      </video>
       <Header variant="hero" minimal />
-      <div className="hero-glow" aria-hidden="true" />
       <motion.div
         className="hero-copy"
         initial={{ opacity: 0, y: 18 }}
@@ -32,14 +46,6 @@ export function Hero() {
         <br />
         Эстетика, комфорт и современный интерьер в одном пространстве.
       </motion.p>
-      <motion.img
-        className="hero-sofa"
-        src={heroSofa}
-        alt="Терракотовый диван из коллекции Зона Комфорта"
-        initial={{ opacity: 0, y: 32, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-      />
       <motion.div
         className="hero-cta"
         initial={{ opacity: 0, y: 20 }}

@@ -272,7 +272,7 @@ button {
 
 .hero-scene {
   position: relative;
-  min-height: 720px;
+  min-height: calc(100vh - 44px);
   overflow: hidden;
   border-radius: 34px;
   color: var(--photo-text);
@@ -281,47 +281,34 @@ button {
     radial-gradient(ellipse at 46% 62%, rgba(56, 31, 23, 0.66) 0 22%, transparent 23%),
     radial-gradient(ellipse at 70% 58%, rgba(72, 43, 31, 0.38) 0 20%, transparent 22%),
     linear-gradient(180deg, rgba(215, 116, 66, 0.95) 0%, rgba(193, 86, 45, 0.82) 38%, rgba(112, 50, 31, 0.92) 100%);
-  box-shadow: inset 0 -160px 170px rgba(50, 22, 13, 0.52);
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  background: var(--terracotta-deep);
+  transform: translateY(-6%) scale(1.08);
+  transform-origin: center center;
+  pointer-events: none;
 }
 
 .hero-scene::before,
 .hero-scene::after {
-  position: absolute;
-  z-index: 0;
-  content: "";
-  pointer-events: none;
+  display: none;
 }
 
 .hero-scene::before {
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(50, 20, 11, 0.1) 0%, rgba(50, 20, 11, 0.18) 100%),
-    radial-gradient(ellipse at 36% 50%, rgba(54, 34, 28, 0.72) 0 18%, transparent 19%),
-    radial-gradient(ellipse at 63% 54%, rgba(71, 42, 33, 0.42) 0 16%, transparent 17%),
-    linear-gradient(180deg, transparent 56%, rgba(69, 35, 21, 0.45) 67%, rgba(40, 20, 12, 0.58) 100%);
-  opacity: 0.95;
+  content: none;
 }
 
 .hero-scene::after {
-  right: -8%;
-  bottom: -2%;
-  left: -8%;
-  height: 38%;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 178, 99, 0.3), transparent 54%),
-    repeating-linear-gradient(102deg, rgba(43, 27, 13, 0.18) 0 2px, transparent 2px 16px),
-    linear-gradient(180deg, rgba(113, 61, 27, 0.24), rgba(41, 22, 13, 0.52));
-  transform: skewY(-1.5deg);
-}
-
-.hero-glow {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 28% 78%, rgba(255, 236, 186, 0.16), transparent 30%),
-    radial-gradient(ellipse at 60% 64%, rgba(255, 173, 84, 0.16), transparent 34%);
-  mix-blend-mode: screen;
+  content: none;
 }
 
 .hero-copy {
@@ -366,17 +353,6 @@ button {
   line-height: 1.28;
   letter-spacing: 0;
   text-shadow: 0 12px 36px rgba(33, 14, 8, 0.36);
-}
-
-.hero-sofa {
-  position: absolute;
-  z-index: 2;
-  right: 13%;
-  bottom: -40px;
-  width: min(900px, 60%);
-  max-width: none;
-  mix-blend-mode: multiply;
-  filter: sepia(0.48) saturate(1.56) hue-rotate(-15deg) contrast(1.04) brightness(0.98);
 }
 
 .hero-cta {
@@ -1669,7 +1645,7 @@ button {
 
 @media (max-width: 1280px) {
   .hero-scene {
-    min-height: 660px;
+    min-height: calc(100vh - 28px);
   }
 
   .hero-copy h1 {
@@ -1680,11 +1656,6 @@ button {
     right: 7%;
     max-width: 360px;
     font-size: 1.36rem;
-  }
-
-  .hero-sofa {
-    right: 9%;
-    width: 62%;
   }
 
   .home-showcase {
@@ -1745,8 +1716,12 @@ button {
   }
 
   .hero-scene {
-    min-height: 740px;
+    min-height: 100svh;
     border-radius: 36px;
+  }
+
+  .hero-video {
+    object-position: center center;
   }
 
   .hero-copy {
@@ -1774,12 +1749,6 @@ button {
     z-index: 4;
     max-width: 470px;
     margin: 22px 34px 0;
-  }
-
-  .hero-sofa {
-    right: 4%;
-    bottom: 92px;
-    width: 86%;
   }
 
   .hero-cta {
@@ -1956,7 +1925,7 @@ button {
   }
 
   .hero-scene {
-    min-height: 730px;
+    min-height: 100svh;
     border-radius: 30px;
     background:
       radial-gradient(circle at 79% 18%, #ffb351 0 24px, rgba(255, 179, 81, 0.25) 27px, transparent 44px),
@@ -1965,8 +1934,12 @@ button {
       linear-gradient(180deg, rgba(215, 116, 66, 0.94) 0%, rgba(193, 86, 45, 0.82) 38%, rgba(112, 50, 31, 0.92) 100%);
   }
 
+  .hero-video {
+    object-position: center center;
+  }
+
   .hero-copy {
-    padding: 104px 28px 0;
+    padding: max(220px, 36svh) 28px 0;
   }
 
   .hero-copy h1 {
@@ -1983,13 +1956,6 @@ button {
     font-size: 1.22rem;
     color: var(--photo-text);
     text-shadow: 0 12px 30px rgba(33, 14, 8, 0.54);
-  }
-
-  .hero-sofa {
-    right: -16%;
-    bottom: 92px;
-    width: 122%;
-    filter: sepia(0.48) saturate(1.7) hue-rotate(-15deg) contrast(1.1) brightness(1.08);
   }
 
   .hero-cta {
