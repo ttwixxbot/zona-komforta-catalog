@@ -293,7 +293,7 @@ button {
   object-fit: cover;
   object-position: center center;
   background: var(--terracotta-deep);
-  transform: translateY(-11%) scale(1.24);
+  transform: translateY(-18%) scale(1.38);
   transform-origin: center center;
   pointer-events: none;
 }
@@ -1731,7 +1731,7 @@ button {
 
   .hero-video {
     object-position: center center;
-    transform: translateY(-12%) scale(1.25);
+    transform: translateY(-20%) scale(1.42);
   }
 
   .hero-copy {
@@ -2000,7 +2000,7 @@ button {
 
   .hero-video {
     object-position: center center;
-    transform: translateY(-14%) scale(1.28);
+    transform: translateY(-23%) scale(1.5);
   }
 
   .hero-copy {
